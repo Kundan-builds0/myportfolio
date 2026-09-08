@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kundan Bagwan | Creative Developer</title>
+
+<style>
+
+/* =========================
+   CSS
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+  --bg:#070914;
+  --card:#0d1220;
+  --text:#ffffff;
+  --muted:#9ca7ba;
+  --line:#222b3d;
+  --purple:#8b5cf6;
+  --cyan:#22d3ee;
+  --pink:#ff4d6d;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.grid{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  opacity:.12;
+
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+
+  background-size:55px 55px;
+}
+
+
+/* NAVBAR */
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:75px;
+
+  padding:0 5%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  background:rgba(7,9,20,.8);
+  backdrop-filter:blur(15px);
+
+  border-bottom:1px solid rgba(255,255,255,.05);
+
+  z-index:100;
+}
+
+.logo{
+  font:700 23px 'Space Grotesk';
+  letter-spacing:2px;
+}
+
+.logo span{
+  color:var(--purple);
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+nav a{
+  color:var(--muted);
+  font-size:13px;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:white;
+}
+
+#theme{
+  width:38px;
+  height:38px;
+  border-radius:10px;
+
+  border:1px solid var(--line);
+
+  background:var(--card);
+  color:white;
+
+  cursor:pointer;
+}
+
+.menu-btn{
+  display:none;
+
+  background:var(--card);
+  border:1px solid var(--line);
+
+  color:white;
+
+  padding:8px 12px;
+
+  border-radius:8px;
+}
+
+
+/* HERO */
+
+.hero{
+  width:min(1150px,92%);
+  min-height:100vh;
+
+  margin:auto;
+
+  padding-top:110px;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  align-items:center;
+
+  gap:50px;
+}
+
+.status{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  border:1px solid var(--line);
+  border-radius:30px;
+
+  padding:7px 13px;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+  margin-bottom:25px;
+}
+
+.status span{
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:#40e878;
+
+  box-shadow:0 0 12px #40e878;
+}
+
+.small-title{
+  color:var(--cyan);
+
+  letter-spacing:3px;
+
+  font-size:11px;
+
+  font-weight:800;
+}
+
+.hero h1{
+  font:400 clamp(80px,11vw,140px)/.78 'Bebas Neue';
+
+  margin:18px 0;
+}
+
+.hero h1 span{
+  color:var(--purple);
+}
+
+.hero h2{
+  font:600 clamp(25px,3vw,40px) 'Space Grotesk';
+}
+
+.hero h2 strong{
+  color:var(--purple);
+}
+
+.description{
+  max-width:580px;
+
+  color:var(--muted);
+
+  font-size:14px;
+
+  line-height:1.8;
+
+  margin:22px 0 28px;
+}
+
+
+/* BUTTONS */
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+
+  padding:13px 20px;
+
+  border:1px solid var(--line);
+
+  border-radius:11px;
+
+  font-size:12px;
+
+  font-weight:800;
+
+  background:var(--card);
+
+  color:white;
+
+  cursor:pointer;
+}
+
+.primary{
+  background:
+    linear-gradient(
+      135deg,
+      var(--purple),
+      #5b7cff
+    );
+
+  border:0;
+
+  box-shadow:
+    0 12px 35px rgba(139,92,246,.25);
+}
+
+.socials{
+  display:flex;
+  gap:10px;
+  margin-top:24px;
+}
+
+.socials a{
+  width:36px;
+  height:36px;
+
+  border:1px solid var(--line);
+
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  font-size:10px;
+  font-weight:bold;
+
+  transition:.3s;
+}
+
+.socials a:hover{
+  transform:translateY(-4px);
+
+  border-color:var(--purple);
+}
+
+
+/* PROFILE */
+
+.profile-area{
+  min-height:600px;
+
+  position:relative;
+
+  display:grid;
+
+  place-items:center;
+}
+
+.profile-card{
+  width:min(450px,90%);
+
+  aspect-ratio:1/1;
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  border:1px solid rgba(255,255,255,.2);
+
+  position:relative;
+
+  z-index:5;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.4);
+}
+
+.profile-card img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+.profile-label{
+  position:absolute;
+
+  top:0;
+  left:0;
+  right:0;
+
+  padding:14px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  z-index:5;
+
+  font-size:8px;
+
+  letter-spacing:1px;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.5),
+      transparent
+    );
+}
+
+.profile-label span{
+  color:#50e87b;
+}
+
+.ring{
+  position:absolute;
+
+  border:1px solid rgba(139,92,246,.35);
+
+  border-radius:50%;
+}
+
+.ring1{
+  width:510px;
+  height:510px;
+
+  animation:spin 20s linear infinite;
+}
+
+.ring2{
+  width:590px;
+  height:590px;
+
+  border-style:dashed;
+
+  border-color:rgba(34,211,238,.18);
+
+  animation:
+    spin 30s linear infinite reverse;
+}
+
+.floating-card{
+  position:absolute;
+
+  z-index:10;
+
+  background:rgba(13,18,32,.9);
+
+  border:1px solid var(--line);
+
+  border-radius:14px;
+
+  padding:13px 16px;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.4);
+
+  display:flex;
+
+  flex-direction:column;
+}
+
+.floating-card strong{
+  font-size:17px;
+}
+
+.floating-card small{
+  font-size:8px;
+  color:var(--muted);
+}
+
+.code-card{
+  right:0;
+  top:20%;
+}
+
+.code-card b{
+  color:var(--cyan);
+}
+
+.year-card{
+  right:3%;
+  bottom:16%;
+}
+
+.year-card strong{
+  color:var(--purple);
+}
+
+
+/* SECTION */
+
+.section{
+  width:min(1150px,92%);
+
+  margin:auto;
+
+  padding:110px 0;
+}
+
+.section-title{
+  display:flex;
+
+  align-items:center;
+
+  gap:15px;
+
+  margin-bottom:40px;
+}
+
+.section-title span{
+  color:var(--cyan);
+
+  font-weight:bold;
+
+  font-size:12px;
+}
+
+.section-title h2{
+  font:700 clamp(38px,5vw,55px) 'Space Grotesk';
+}
+
+.section-title b{
+  color:var(--purple);
+}
+
+
+/* ABOUT */
+
+.about{
+  display:grid;
+
+  grid-template-columns:1.3fr .7fr;
+
+  gap:18px;
+}
+
+.about-box,
+.facts{
+  background:var(--card);
+
+  border:1px solid var(--line);
+
+  border-radius:20px;
+}
+
+.about-box{
+  padding:40px;
+}
+
+.about-box small{
+  color:var(--cyan);
+
+  letter-spacing:2px;
+
+  font-weight:bold;
+}
+
+.about-box h3{
+  font:700 35px 'Space Grotesk';
+
+  margin:18px 0;
+}
+
+.about-box h3 span{
+  color:var(--purple);
+}
+
+.about-box p{
+  color:var(--muted);
+
+  font-size:14px;
+
+  margin-top:12px;
+}
+
+.facts{
+  padding:10px 25px;
+}
+
+.facts div{
+  padding:22px 0;
+
+  border-bottom:1px solid var(--line);
+}
+
+.facts div:last-child{
+  border:0;
+}
+
+.facts small{
+  display:block;
+
+  color:var(--cyan);
+
+  font-size:9px;
+
+  letter-spacing:2px;
+}
+
+.facts strong{
+  display:block;
+
+  margin-top:5px;
+
+  font-size:13px;
+}
+
+
+/* SKILLS */
+
+.skills{
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap:14px;
+}
+
+.skill{
+  padding:24px;
+
+  background:var(--card);
+
+  border:1px solid var(--line);
+
+  border-radius:18px;
+
+  transition:.3s;
+}
+
+.skill:hover{
+  transform:translateY(-7px);
+
+  border-color:var(--purple);
+}
+
+.icon{
+  width:45px;
+  height:45px;
+
+  display:grid;
+  place-items:center;
+
+  background:
+    rgba(139,92,246,.12);
+
+  color:var(--purple);
+
+  border-radius:11px;
+
+  font-weight:900;
+
+  margin-bottom:20px;
+}
+
+.skill h3{
+  font:700 20px 'Space Grotesk';
+}
+
+.skill p{
+  color:var(--muted);
+
+  font-size:12px;
+
+  min-height:55px;
+
+  margin:9px 0 18px;
+}
+
+.bar{
+  height:4px;
+
+  background:var(--line);
+
+  border-radius:10px;
+
+  overflow:hidden;
+}
+
+.bar i{
+  display:block;
+
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--purple),
+      var(--cyan)
+    );
+}
+
+
+/* PROJECTS */
+
+.projects{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:18px;
+}
+
+.project{
+  background:var(--card);
+
+  border:1px solid var(--line);
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  transition:.3s;
+}
+
+.project:hover{
+  transform:translateY(-8px);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.3);
+}
+
+.project-img{
+  height:230px;
+
+  display:grid;
+
+  place-items:center;
+
+  position:relative;
+}
+
+.project-img span{
+  position:absolute;
+
+  top:15px;
+  left:17px;
+
+  font-size:10px;
+}
+
+.project-img strong{
+  font:400 75px 'Bebas Neue';
+
+  letter-spacing:5px;
+}
+
+.titan{
+  background:
+    radial-gradient(
+      circle,
+      rgba(139,92,246,.7),
+      transparent 35%
+    ),
+    #10132c;
+}
+
+.vote{
+  background:
+    radial-gradient(
+      circle,
+      rgba(34,211,238,.4),
+      transparent 35%
+    ),
+    #09232f;
+}
+
+.music{
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,77,109,.5),
+      transparent 35%
+    ),
+    #291222;
+}
+
+.project-content{
+  padding:24px;
+}
+
+.project-content small{
+  color:var(--cyan);
+
+  letter-spacing:2px;
+
+  font-size:8px;
+
+  font-weight:bold;
+}
+
+.project-content h3{
+  font:700 21px 'Space Grotesk';
+
+  margin:9px 0;
+}
+
+.project-content p{
+  color:var(--muted);
+
+  font-size:12px;
+}
+
+.tags{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:6px;
+
+  margin-top:17px;
+}
+
+.tags span{
+  border:1px solid var(--line);
+
+  border-radius:20px;
+
+  padding:5px 8px;
+
+  color:var(--muted);
+
+  font-size:9px;
+}
+
+
+/* CONTACT */
+
+.contact{
+  background:var(--card);
+
+  border:1px solid var(--line);
+
+  border-radius:22px;
+
+  padding:50px;
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:60px;
+}
+
+.contact small{
+  color:var(--cyan);
+
+  letter-spacing:2px;
+
+  font-weight:bold;
+}
+
+.contact h2{
+  font:400 75px/.85 'Bebas Neue';
+
+  margin:20px 0;
+}
+
+.contact h2 span{
+  color:var(--purple);
+}
+
+.contact p{
+  color:var(--muted);
+
+  font-size:13px;
+}
+
+.email{
+  display:inline-block;
+
+  margin-top:20px;
+
+  color:var(--cyan);
+
+  font-weight:bold;
+
+  font-size:13px;
+}
+
+form{
+  display:grid;
+  gap:12px;
+}
+
+input,
+textarea{
+  width:100%;
+
+  padding:14px;
+
+  background:#080c17;
+
+  color:white;
+
+  border:1px solid var(--line);
+
+  border-radius:10px;
+
+  outline:none;
+
+  font:inherit;
+}
+
+input:focus,
+textarea:focus{
+  border-color:var(--purple);
+}
+
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid var(--line);
+
+  padding:25px 5%;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  color:var(--muted);
+
+  font-size:10px;
+}
+
+
+/* ANIMATION */
+
+@keyframes spin{
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+  .hero{
+    grid-template-columns:1fr;
+
+    text-align:center;
+  }
+
+  .description{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .buttons,
+  .socials{
+    justify-content:center;
+  }
+
+  .profile-area{
+    min-height:520px;
+  }
+
+  .skills{
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+
+  .about{
+    grid-template-columns:1fr;
+  }
+
+  .projects{
+    grid-template-columns:1fr;
+  }
+
+  .contact{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+@media(max-width:650px){
+
+  .menu-btn{
+    display:block;
+  }
+
+  nav{
+    position:absolute;
+
+    top:70px;
+    right:5%;
+
+    display:none;
+
+    flex-direction:column;
+
+    background:var(--card);
+
+    border:1px solid var(--line);
+
+    padding:18px;
+
+    border-radius:15px;
+  }
+
+  nav.active{
+    display:flex;
+  }
+
+  .skills{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .ring{
+    display:none;
+  }
+
+  .floating-card{
+    display:none;
+  }
+
+  .about-box,
+  .contact{
+    padding:28px;
+  }
+
+  .contact h2{
+    font-size:58px;
+  }
+
+  footer{
+    flex-direction:column;
+
+    gap:8px;
+  }
+
+}
+
+
+@media(max-width:420px){
+
+  .skills{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:80px;
+  }
+
+  .profile-card{
+    width:95%;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="grid"></div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+
+<a href="#home" class="logo">
+KUNDAN<span>.</span>
+</a>
+
+<button class="menu-btn">
+☰
+</button>
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#skills">Skills</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#contact">Contact</a>
+
+<button id="theme">
+☾
+</button>
+
+</nav>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section id="home" class="hero">
+
+
+<div class="hero-text">
+
+
+<div class="status">
+
+<span></span>
+
+BCA 3rd Year Student
+
+</div>
+
+
+<p class="small-title">
+HELLO, I'M
+</p>
+
+
+<h1>
+
+Kundan<br>
+
+<span>Bagwan.</span>
+
+</h1>
+
+
+<h2>
+
+I'm a
+
+<strong id="typing"></strong>
+
+</h2>
+
+
+<p class="description">
+
+I create responsive websites and interactive
+digital experiences using code, creativity
+and animation.
+
+</p>
+
+
+<div class="buttons">
+
+<a href="#projects"
+class="btn primary">
+
+Explore My Work ↗
+
+</a>
+
+
+<a href="#contact"
+class="btn">
+
+Let's Connect
+
+</a>
+
+</div>
+
+
+<div class="socials">
+
+<a href="https://github.com/codeyogistudent"
+target="_blank">
+
+GH
+
+</a>
+
+
+<a href="https://www.linkedin.com/in/kundan-bagwan-45738b30b"
+target="_blank">
+
+in
+
+</a>
+
+
+<a href="mailto:kundanbagwan73@gmail.com">
+
+@
+
+</a>
+
+</div>
+
+
+</div>
+
+
+
+<!-- PROFILE -->
+
+<div class="profile-area">
+
+
+<div class="ring ring1"></div>
+
+<div class="ring ring2"></div>
+
+
+<div class="profile-card">
+
+<div class="profile-label">
+
+PROFILE // 01
+
+<span>● ONLINE</span>
+
+</div>
+
+
+<img src="profile.png"
+alt="Kundan Bagwan">
+
+</div>
+
+
+<div class="floating-card code-card">
+
+<b>&lt;/&gt;</b>
+
+<strong>CODE</strong>
+
+<small>
+BUILD • TEST • CREATE
+</small>
+
+</div>
+
+
+<div class="floating-card year-card">
+
+<strong>2026</strong>
+
+<small>
+PORTFOLIO
+</small>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about"
+class="section">
+
+
+<div class="section-title">
+
+<span>01</span>
+
+<h2>
+About <b>Me</b>
+</h2>
+
+</div>
+
+
+<div class="about">
+
+
+<div class="about-box">
+
+<small>
+ORIGIN STORY
+</small>
+
+
+<h3>
+
+Student today.<br>
+
+<span>
+Developer in the making.
+</span>
+
+</h3>
+
+
+<p>
+
+I'm Kundan Bagwan, a BCA 3rd year
+student who enjoys turning ideas
+into clean, responsive and
+interactive websites.
+
+</p>
+
+
+<p>
+
+I like experimenting with animations,
+creative UI designs and modern
+web technologies.
+
+</p>
+
+</div>
+
+
+
+<div class="facts">
+
+
+<div>
+
+<small>
+EDUCATION
+</small>
+
+<strong>
+BCA — 3rd Year
+</strong>
+
+</div>
+
+
+<div>
+
+<small>
+FOCUS
+</small>
+
+<strong>
+Web Development
+</strong>
+
+</div>
+
+
+<div>
+
+<small>
+STYLE
+</small>
+
+<strong>
+Creative + Interactive
+</strong>
+
+</div>
+
+
+<div>
+
+<small>
+EMAIL
+</small>
+
+<strong>
+kundanbagwan73@gmail.com
+</strong>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills"
+class="section">
+
+
+<div class="section-title">
+
+<span>02</span>
+
+<h2>
+Power <b>Skills</b>
+</h2>
+
+</div>
+
+
+<div class="skills">
+
+
+<div class="skill">
+
+<div class="icon">
+&lt;/&gt;
+</div>
+
+<h3>
+HTML
+</h3>
+
+<p>
+Semantic structure and responsive
+page foundations.
+</p>
+
+<div class="bar">
+<i style="width:92%"></i>
+</div>
+
+</div>
+
+
+
+<div class="skill">
+
+<div class="icon">
+#
+</div>
+
+<h3>
+CSS
+</h3>
+
+<p>
+Layouts, responsive design
+and animations.
+</p>
+
+<div class="bar">
+<i style="width:88%"></i>
+</div>
+
+</div>
+
+
+
+<div class="skill">
+
+<div class="icon">
+JS
+</div>
+
+<h3>
+JavaScript
+</h3>
+
+<p>
+Interactive UI and DOM-based
+web applications.
+</p>
+
+<div class="bar">
+<i style="width:78%"></i>
+</div>
+
+</div>
+
+
+
+<div class="skill">
+
+<div class="icon">
+TS
+</div>
+
+<h3>
+TypeScript
+</h3>
+
+<p>
+Typed JavaScript and cleaner
+project architecture.
+</p>
+
+<div class="bar">
+<i style="width:65%"></i>
+</div>
+
+</div>
+
+
+
+<div class="skill">
+
+<div class="icon">
+PHP
+</div>
+
+<h3>
+PHP
+</h3>
+
+<p>
+Server-side fundamentals and
+dynamic websites.
+</p>
+
+<div class="bar">
+<i style="width:62%"></i>
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects"
+class="section">
+
+
+<div class="section-title">
+
+<span>03</span>
+
+<h2>
+Featured <b>Projects</b>
+</h2>
+
+</div>
+
+
+<div class="projects">
+
+
+<article class="project">
+
+
+<div class="project-img titan">
+
+<span>
+01
+</span>
+
+<strong>
+AOT
+</strong>
+
+</div>
+
+
+<div class="project-content">
+
+<small>
+WEB EXPERIENCE
+</small>
+
+<h3>
+Attack on Titan Universe
+</h3>
+
+<p>
+
+A creative universe-style website
+with immersive visuals, character
+content and animated interface.
+
+</p>
+
+
+<div class="tags">
+
+<span>HTML</span>
+
+<span>CSS</span>
+
+<span>JavaScript</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="project">
+
+
+<div class="project-img vote">
+
+<span>
+02
+</span>
+
+<strong>
+VOTE
+</strong>
+
+</div>
+
+
+<div class="project-content">
+
+<small>
+INTERACTIVE APP
+</small>
+
+<h3>
+Voting Site
+</h3>
+
+<p>
+
+A voting-focused web project
+designed around interaction
+and an easy user flow.
+
+</p>
+
+
+<div class="tags">
+
+<span>HTML</span>
+
+<span>CSS</span>
+
+<span>JS</span>
+
+<span>PHP</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="project">
+
+
+<div class="project-img music">
+
+<span>
+03
+</span>
+
+<strong>
+♫
+</strong>
+
+</div>
+
+
+<div class="project-content">
+
+<small>
+MOOD + MUSIC
+</small>
+
+<h3>
+Mood Music
+</h3>
+
+<p>
+
+A concept for matching music
+experiences to different moods.
+
+</p>
+
+
+<div class="tags">
+
+<span>JavaScript</span>
+
+<span>CSS</span>
+
+<span>UI</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact"
+class="section">
+
+
+<div class="contact">
+
+
+<div>
+
+<small>
+04 — CONTACT
+</small>
+
+
+<h2>
+
+LET'S BUILD<br>
+
+<span>
+SOMETHING COOL.
+</span>
+
+</h2>
+
+
+<p>
+
+Have a project, collaboration
+or idea? Drop me a message.
+
+</p>
+
+
+<a class="email"
+href="mailto:kundanbagwan73@gmail.com">
+
+kundanbagwan73@gmail.com ↗
+
+</a>
+
+</div>
+
+
+
+<form id="contactForm">
+
+
+<input
+id="name"
+type="text"
+placeholder="Your Name"
+required
+>
+
+
+<input
+id="email"
+type="email"
+placeholder="Your Email"
+required
+>
+
+
+<textarea
+id="message"
+rows="5"
+placeholder="Your Message"
+required>
+</textarea>
+
+
+<button
+class="btn primary">
+
+Send Message ↗
+
+</button>
+
+
+</form>
+
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+© 2026 Kundan Bagwan
+
+<span>
+HTML • CSS • JavaScript
+</span>
+
+</footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+/* TYPING EFFECT */
+
+const words = [
+
+"Creative Developer",
+
+"Web Developer",
+
+"Problem Solver",
+
+"Digital Creator"
+
+];
+
+
+let wordIndex = 0;
+
+let charIndex = 0;
+
+let deleting = false;
+
+
+const typing =
+document.getElementById("typing");
+
+
+function typeEffect(){
+
+const word =
+words[wordIndex];
+
+
+if(deleting){
+
+typing.textContent =
+word.substring(0,charIndex--);
+
+}else{
+
+typing.textContent =
+word.substring(0,charIndex++);
+
+}
+
+
+if(
+!deleting &&
+charIndex > word.length
+){
+
+deleting = true;
+
+setTimeout(
+typeEffect,
+1000
+);
+
+return;
+
+}
+
+
+if(
+deleting &&
+charIndex < 0
+){
+
+deleting = false;
+
+wordIndex++;
+
+if(wordIndex >= words.length){
+
+wordIndex = 0;
+
+}
+
+charIndex = 0;
+
+}
+
+
+setTimeout(
+typeEffect,
+deleting ? 45 : 80
+);
+
+}
+
+
+typeEffect();
+
+
+
+/* MOBILE MENU */
+
+const menuBtn =
+document.querySelector(".menu-btn");
+
+const nav =
+document.querySelector("nav");
+
+
+menuBtn.addEventListener(
+"click",
+()=>{
+
+nav.classList.toggle("active");
+
+});
+
+
+document
+.querySelectorAll("nav a")
+.forEach(link=>{
+
+link.addEventListener(
+"click",
+()=>{
+
+nav.classList.remove("active");
+
+});
+
+});
+
+
+
+/* DARK / LIGHT */
+
+const theme =
+document.getElementById("theme");
+
+
+theme.addEventListener(
+"click",
+()=>{
+
+const root =
+document.documentElement;
+
+
+if(
+root.style.getPropertyValue("--bg")
+===
+"#070914"
+){
+
+root.style.setProperty(
+"--bg",
+"#f4f7fb"
+);
+
+root.style.setProperty(
+"--card",
+"#ffffff"
+);
+
+root.style.setProperty(
+"--text",
+"#111827"
+);
+
+root.style.setProperty(
+"--muted",
+"#64748b"
+);
+
+theme.textContent="☀";
+
+}else{
+
+root.style.setProperty(
+"--bg",
+"#070914"
+);
+
+root.style.setProperty(
+"--card",
+"#0d1220"
+);
+
+root.style.setProperty(
+"--text",
+"#ffffff"
+);
+
+root.style.setProperty(
+"--muted",
+"#9ca7ba"
+);
+
+theme.textContent="☾";
+
+}
+
+});
+
+
+
+/* CONTACT FORM */
+
+const form =
+document.getElementById(
+"contactForm"
+);
+
+
+form.addEventListener(
+"submit",
+(event)=>{
+
+event.preventDefault();
+
+
+const name =
+document.getElementById(
+"name"
+).value;
+
+
+const email =
+document.getElementById(
+"email"
+).value;
+
+
+const message =
+document.getElementById(
+"message"
+).value;
+
+
+const subject =
+encodeURIComponent(
+"Portfolio Contact - "
++
+name
+);
+
+
+const body =
+encodeURIComponent(
+
+`Name: ${name}
+
+Email: ${email}
+
+Message:
+${message}`
+
+);
+
+
+window.location.href =
+`mailto:kundanbagwan73@gmail.com?subject=${subject}&body=${body}`;
+
+});
+
+
+
+</script>
+
+</body>
+
+</html>
